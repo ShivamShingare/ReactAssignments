@@ -1,26 +1,33 @@
-import React, { useState, useEffect } from "react";
-import ProgressBar from "./components/ProgressBar";
+import logo from './logo.svg';
+import './App.css';
+import HelloWorld from './Components/HelloWorld';
+import Counter from './Components/Counter';
+import Form from './Components/Form';
+import DataFetcher from './Components/DataFetcher';
 
-const App = () => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((oldProgress) => {
-        const newProgress = oldProgress + 10;
-        return newProgress > 100 ? 100 : newProgress;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+function App() {
   return (
-    <div style={{ width: "50%", margin: "50px auto", textAlign: "center" }}>
-      <h2>Custom Progress Bar</h2>
-      <ProgressBar progress={progress} />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <HelloWorld/>
+      <Counter/>
+      <Form/>
+      <DataFetcher/>
     </div>
   );
-};
+}
 
 export default App;
